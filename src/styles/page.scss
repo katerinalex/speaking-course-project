@@ -1,0 +1,46 @@
+@import './typography';
+@import './variables';
+
+.page {
+
+  &__title {
+    @extend %poppins-500;
+    font-size: 48px;
+    line-height: 100%;
+    color: $header-button-and-title-active-color;
+
+    &_medium {
+      @extend %poppins-500;
+      line-height: 100%;
+      font-size: 40px;
+    }
+  }
+
+  &__paragraph {
+    @extend %poppins-400;
+    color: $header-button-and-title-active-color;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &__button {
+    @extend %poppins-700;
+    background-color:$button-back-color;
+    border: 0;
+    // width: 201px;
+    height: 48px;
+    border-radius: 10px;
+    color: $header-button-and-title-active-color;
+    font-size: 16px;
+    line-height: 150%;
+
+    &-secondary {
+      @extend %poppins-700;
+      background-color: $slider-title-color;
+      color: $button-title-color;
+      height: 48px;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+}

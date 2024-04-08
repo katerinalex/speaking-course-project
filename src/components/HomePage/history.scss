@@ -1,0 +1,50 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+
+.history {
+  margin-bottom: 80px;
+
+  &__title {
+    text-align: start;
+    margin-bottom: 40px;
+  }
+
+  &__paragraph {
+    margin-top: 40px;
+    margin-bottom: 8px;
+    @extend %poppins-500;
+    font-size: 18px;
+    width: 579px;
+    text-align: start;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    background-color: $history-back-color;
+  }
+
+  &-img {
+    &-container {
+      display: flex;
+      justify-content: start;
+      gap: 16px;
+      margin-bottom: 158px;
+    }
+  }
+
+  &__button {
+    width: 280px;
+    height: 48px;
+    // display: flex;
+    // justify-content: start;
+    // align-items: center;/
+    // text-align: center;
+
+    &-container {
+      display: flex;
+      justify-content: start;
+    }
+  }
+}

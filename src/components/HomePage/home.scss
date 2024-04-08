@@ -1,0 +1,139 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+
+.home {
+  margin: auto;
+  margin: 0 56px 0;
+
+  &__header {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 32px 56px 0;
+
+    &__title {
+      text-align: start;
+      margin-bottom: 8px;
+
+      &-active {
+        @extend %poppins-700;
+        text-align: end;
+        font-size: 48px;
+        line-height: 100%;
+        margin-bottom: 24px;
+      }
+
+      &-container {
+        width: 652px;
+      }
+    }
+
+    &__paragraph {
+      text-align: start;
+      margin-bottom: 162px;
+    }
+
+    &__button {
+      width: 280px;
+      margin-top: 16px;
+
+      &-container {
+        text-align: start;
+      }
+
+      &__caption {
+        @extend %poppins-500;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.consultation {
+  background-color: $consultation-back-color;
+  border-radius: 8px;
+  padding-top: 94px;
+  margin-bottom: 80px;
+
+  &__title {
+    @extend %poppins-500;
+    font-size: 24px;
+    line-height: 145%;
+    color: $consultation-title-color;
+  }
+
+  &__button {
+    margin-top: 24px;
+    margin-bottom: 94px;
+    width: 280px;
+  }
+}
+
+.course {
+  margin-bottom: 80px;
+
+  &__title {
+    font-size: 40px;
+    text-align: start;
+    margin-bottom: 40px;
+  }
+}
+
+.animals {
+  display: flex;
+  // justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 56px;
+
+  &-container {
+    position: relative;
+    height: 420px;
+    min-width: 652px;
+    width: 100%;
+    border-radius: 8px;
+
+    &-first {
+      background-image: url(../../../public/images/animals-background-img.png);
+      background-size: cover;
+    }
+
+    &-second {
+      background-color: #F5EDEF;
+
+    }
+  }
+
+  &__title {
+    @extend %poppins-500;
+    line-height: 150%;
+    font-size: 18px;
+
+    &-first {
+       position: absolute;
+       left: 40px;
+       top: 40px;
+    }
+
+    &-second {
+      position: absolute;
+      left: 40px;
+      bottom: 40px;
+      text-align: start;
+    }
+  }
+
+  &-img {
+    &-first {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+    }
+
+    &-second {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+    }
+  }
+}

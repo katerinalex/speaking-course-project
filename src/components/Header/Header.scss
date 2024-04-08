@@ -1,0 +1,80 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 56px 0;
+
+
+  &__item {
+    @extend %poppins-400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $header-title-color;
+  }
+
+  &__link {
+    cursor: pointer;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    padding: 0;
+  }
+
+  &-logo {
+    height: 50px;
+    &__list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 10px;
+      padding: 0;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    //   flex-direction: row;
+    }
+  }
+
+  &__search {
+    border: 1px solid $border-input-color;
+    width: 314px;
+    height: 48px;
+    border-radius: 32px;
+  }
+
+  &__button {
+    width: 201px;
+
+
+    &-language {
+      @extend %poppins-500;
+      background: none;
+      display: flex;
+      gap: 10px;
+      color: $header-title-color;
+      align-items: center;
+      border: none;
+      font-size: 8px;
+
+      &-img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &-log {
+      @extend %poppins-700;
+      line-height: 150%;
+      font-size: 16px;
+    }
+  }
+}

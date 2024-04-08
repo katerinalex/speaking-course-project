@@ -1,0 +1,29 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+
+.slider {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px 0 80px;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @extend %poppins-500;
+    line-height: 145%;
+    font-size: 24px;
+    color: $slider-title-color;
+    border: 1px solid $slider-title-color;
+    border-radius: 32px;
+    height: 67px;
+    width: max-content;
+    padding: 0 24px 0;
+
+    &-second {
+      color: $slider-title-color-second;
+      border: 1px solid $slider-title-color-second;
+    }
+  }
+}
