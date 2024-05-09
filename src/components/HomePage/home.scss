@@ -1,20 +1,47 @@
 @import '../../styles/typography';
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .home {
   margin: auto;
   margin: 0 56px 0;
+
+  @include onPhone {
+    margin: 8px 16px 0;
+  }
+
+  @include onTablet {
+    margin: 8px 24px 0;
+  }
 
   &__header {
     margin: auto;
     display: flex;
     justify-content: center;
     gap: 24px;
-    margin: 32px 56px 0;
+    margin-top: 32px;
+
+    @include onPhone {
+      display: block;
+      margin: auto;
+      // margin-top: 8px;
+      margin: 0;
+    }
 
     &__title {
       text-align: start;
       margin-bottom: 8px;
+
+      @include onPhone {
+        font-size: 26px;
+        text-align: start;
+        // display: flex;
+      }
+
+      @include onTablet {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
 
       &-active {
         @extend %poppins-700;
@@ -22,51 +49,164 @@
         font-size: 48px;
         line-height: 100%;
         margin-bottom: 24px;
+
+        @include onPhone {
+          font-size: 26px;
+        }
+
+        @include onTablet {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
       }
 
       &-container {
         width: 652px;
+
+        @include onPhone {
+          max-width: 439px;
+          width: 288px;
+          // text-align: center;
+          // display: flex;
+          // flex-direction: column;
+          // justify-content: center;
+          // width: max-content;
+        }
+
+        @include onTablet {
+          width: 288px;
+        }
+      }
+
+      &__main-container {
+        // display: flex;
+        justify-content: center;
       }
     }
 
     &__paragraph {
       text-align: start;
       margin-bottom: 162px;
+
+      @include onPhone {
+        display: none;
+      }
+
+      @include onTablet {
+        display: none;
+      }
+
+      &_mobile {
+        display: none;
+
+        @include onPhone {
+          display: block;
+          text-align: start;
+          margin-top: 16px;
+        }
+      }
+
+      &_tablet {
+        display: none;
+
+        @include onTablet {
+          display: block;
+          text-align: start;
+          margin-bottom: 46px;
+        }
+      }
     }
 
     &__button {
       width: 280px;
       margin-top: 16px;
 
+      @include onPhone {
+        text-align: center;
+      }
+
       &-container {
         text-align: start;
+
+        @include onPhone {
+          display: none;
+        }
+
+        &_mobile {
+          display: none;
+
+          @include onPhone {
+            display: block;
+            margin-top: 16px;
+            // text-align: start;
+          }
+        }
       }
 
       &__caption {
         @extend %poppins-500;
         font-size: 18px;
+
+        @include onPhone {
+          text-align: start;
+        }
+
+        @include onTablet {
+          font-size: 16px;
+        }
       }
     }
   }
 }
 
 .consultation {
-  background-color: $consultation-back-color;
-  border-radius: 8px;
-  padding-top: 94px;
-  margin-bottom: 80px;
+  &-container {
+    background-color: $consultation-back-color;
+    padding-bottom: 94px;
+    padding-top: 94px;
+    border-radius: 8px;
+    margin-bottom: 80px;
+
+    @include onPhone {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      margin-top: 32px;
+      padding: 16px;
+    }
+
+    @include onTablet {
+      padding-top: 44px;
+      padding-bottom: 44px;
+    }
+  }
 
   &__title {
     @extend %poppins-500;
     font-size: 24px;
     line-height: 145%;
     color: $consultation-title-color;
+
+    @include onPhoneAndTablet {
+      font-size: 18px;
+      width: 240px;
+      max-width: 100%;
+      margin: auto;
+      // text-align: center;
+    }
+
+    @include onTablet {
+      width: max-content;
+      font-size: 16px;
+    }
   }
 
   &__button {
     margin-top: 24px;
-    margin-bottom: 94px;
     width: 280px;
+
+    @include onPhone {
+      width: 100%;
+    }
   }
 }
 
@@ -77,14 +217,32 @@
     font-size: 40px;
     text-align: start;
     margin-bottom: 40px;
+
+    @include onPhoneAndTablet {
+      font-size: 22px;
+    }
   }
 }
 
 .animals {
   display: flex;
-  // justify-content: space-between;
   gap: 24px;
   margin-bottom: 56px;
+
+  @include onTablet {
+    justify-content: center;
+  }
+
+  @include onPhone {
+    gap: 8px;
+  }
+
+  &__main-img {
+    @include onPhone {
+      height: 288px;
+      width: 100%;
+    }
+  }
 
   &-container {
     position: relative;
@@ -93,9 +251,35 @@
     width: 100%;
     border-radius: 8px;
 
+    @include onPhone {
+      height: 180px;
+      min-width: 140px;
+    }
+
+    @include onTablet {
+      height: 222px;
+      min-width: 288px;
+      max-width: 290px;
+    }
+
     &-first {
-      background-image: url(../../../public/images/animals-background-img.png);
       background-size: cover;
+
+      @include onPhone {
+        background-image: url(../../../public/images/animas-background-img-phone.jpg);
+        // background-size: cover;
+      }
+
+      @include onTablet {
+        background-image: url(../../../public/images/animals-background-img-tablet.jpg);
+        // background-image: url(../../../public/images/animals-background-img.png);
+        // background-size: cover;
+        background-size: contain;
+      }
+
+      @include onDesktop {
+        background-image: url(../../../public/images/animals-background-img.png);
+      }
     }
 
     &-second {
@@ -109,10 +293,31 @@
     line-height: 150%;
     font-size: 18px;
 
+    @include onPhone {
+      font-size: 12px;
+    }
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
     &-first {
        position: absolute;
        left: 40px;
        top: 40px;
+
+       @include onPhone {
+        top: 8px;
+        left: 8px;
+        text-align: start;
+       }
+
+       @include onTablet {
+        top: 16px;
+        left: 16px;
+        width: 200px;
+        text-align: start;
+       }
     }
 
     &-second {
@@ -120,20 +325,61 @@
       left: 40px;
       bottom: 40px;
       text-align: start;
+
+      @include onPhone {
+        left: 8px;
+        bottom: 8px;
+        text-align: center;
+      }
+
+      @include onTablet {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        text-align: end;
+      }
     }
   }
 
   &-img {
+    @include onPhone {
+      height: 25px;
+    }
+
+    @include onTablet {
+      height: 31px;
+    }
+
     &-first {
       position: absolute;
       bottom: 40px;
       left: 40px;
+
+      @include onPhone {
+        bottom: 8px;
+        left: 8px;
+      }
+
+      @include onTablet {
+        bottom: 20px;
+        left: 20px;
+      }
     }
 
     &-second {
       position: absolute;
       top: 40px;
       right: 40px;
+
+      @include onPhone {
+        top: 8px;
+        right: 8px;
+      }
+
+      @include onTablet {
+        top: 20px;
+        right: 20px;
+      }
     }
   }
 }
