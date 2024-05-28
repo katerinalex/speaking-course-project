@@ -144,6 +144,12 @@ export const Header = () => {
         <h2 className='header__button-log'>Log in</h2>
       </div>
       <div className='header__button-log-container'>
+            <NavLink to='/login' className='header__menu__link'>
+              Log in
+            </NavLink>
+            <NavLink to='/signin' className='header__menu__link'>
+              Sign in
+            </NavLink>
         <h2 className='header__button-log header__button-log-mobile'>Log in</h2>
         <button className="page__button header__button">
           Sign up
