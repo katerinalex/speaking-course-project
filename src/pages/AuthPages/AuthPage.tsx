@@ -20,6 +20,17 @@ const AuthPage: React.FC<Props> = ({page}) => {
         {page}
 
         <div className='auth__info'>
+          <div>
+            <h3 className='auth__info-text auth__info-h3 '>Public Speaking</h3>
+            <h4 className='auth__info-text auth__info-h4 '>сourses</h4>
+            <p className='auth__info-text auth__info-p '>
+              Increase your emotional and social competence
+              by honing your communication skills and structure
+              your day for greater productivity and satisfaction. 
+            </p>
+          </div>
+          
+          <h5 className='auth__info-text auth__info-h5 '>Join us and get to know your best self!</h5>
         </div>
       </div>
       
