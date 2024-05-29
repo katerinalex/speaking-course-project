@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import {gapi} from 'gapi-script';
 import visibleOn from '../../assets/icons/Eye.svg';
 import visibleOff from '../../assets/icons/Eye Closed.svg';
 import visibleOnRed from '../../assets/icons/Eye Red.svg';
 import visibleOffRed from '../../assets/icons/Eye Closed Red.svg';
 import facebook from '../../assets/icons/icon_facebook.svg';
 import google from '../../assets/icons/icon_google.svg';
-import classNames from 'classnames';
-import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -25,13 +27,11 @@ const Login = () => {
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
     setHasEmailError('');
-    setHasError(false);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     setHasPasswordError('');
-    setHasError(false);
   };
 
   const handleEmailBlur = () => {
@@ -65,10 +65,11 @@ const Login = () => {
   };
 
   const onFinish = async () => {
+    setHasError(false);
     handleEmailBlur();
     handlePasswordBlur();
   
-    if (!hasError) {
+    if (hasError === false) {
       setDisable(true);
   
       const data = {
@@ -78,12 +79,12 @@ const Login = () => {
   
       try {
         setLoader(true);
-        const response = await axios.post('http://localhost:8080/auth/login', data, {
+        const response = await axios.post('http://сервак добавити і протестити', data, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        navigate('/');
+        navigate('/після логіну закине куди треба');
   
         console.log('Логін успішний:', response);
       } catch (error) {
@@ -95,124 +96,150 @@ const Login = () => {
       }
     }
   };
-  
 
+  const handleGoogle = () => {
+    gapi.load('auth2', () => {
+      gapi.auth2.init({
+        client_id: "ключ гугла",
+        prompt: 'select_account', //параметр prompt на 'select_account' //параметр prompt на 'select_account тоді можемо вибрати серед акаунтів гугловських'
+      }).then(() => {
+        const auth2 = gapi.auth2.getAuthInstance();
+        auth2.signIn().then((googleUser: any) => {
+          const idToken = googleUser.getAuthResponse().id_token;
+  
+          axios.post('на апі берем дані з гугла не забути фото спитати', {
+            "auth_token": idToken
+          }).then(resp => {
+            Cookies.set('access_token', resp.data.tokens.access);
+            Cookies.set('refresh_token', resp.data.tokens.refresh);
+            navigate('/account');
+            console.log(resp);
+          });
+        }).catch((error: any) => {
+          console.error('Помилка авторизації Google:', error);
+        });
+      });
+    });
+  }
+  
   return (
     <div className='auth__form'>
-      <h2 className='auth__form-title'>Welcome back</h2>
+      <div>
+        <h2 className='auth__form-title'>Welcome back</h2>
 
-      <label
-        className={classNames('auth__form-label', {
-          'auth__form-label--err': hasEmailError,
-        })}
-        htmlFor="em"
-      >
-        Email
-      </label>
-
-      <div
-        className={classNames('auth__form-border', {
-          'auth__form-border--err': hasEmailError,
-        })}
-      >
-        <input
-          className={classNames('auth__form-input', {
-            'auth__form-input--err': hasEmailError,
+        <label
+          className={classNames('auth__form-label', {
+            'auth__form-label--err': hasEmailError,
           })}
-          type="text"
-          id='em'
-          placeholder='Enter your Email'
-          autoComplete='off'
-          value={email}
-          onChange={handleEmailChange}
-          onBlur={handleEmailBlur}
-        />
-      </div>
+          htmlFor="em"
+        >
+          Email
+        </label>
 
-      <div className="auth__form-message">
-        {hasEmailError ? (
-          <div className='auth__form-error'>
-            <span className='auth__form-error-mark'>!</span>
-            <p className='auth__form-error-text'>{hasEmailError}</p>
-          </div>
-        ) : (
-          <p></p>
-        )}
-      </div>
-
-      <label
-        className={classNames('auth__form-label', {
-          'auth__form-label--err': hasPasswordError,
-        })}
-        htmlFor="pass"
-      >
-        Password
-      </label>
-
-      <div
-        className={classNames('auth__form-border', {
-          'auth__form-border--err': hasPasswordError,
-        })}
-      >
-        <input
-          className={classNames('auth__form-input', {
-            'auth__form-input--err': hasPasswordError,
+        <div
+          className={classNames('auth__form-border', {
+            'auth__form-border--err': hasEmailError,
           })}
-          id='pass'
-          placeholder='Enter your Password'
-          type={showPassword ? 'text' : 'password'}
-          name="password"
-          maxLength={30}
-          value={password}
-          onBlur={handlePasswordBlur}
-          onChange={handlePasswordChange}
-        />
+        >
+          <input
+            className={classNames('auth__form-input', {
+              'auth__form-input--err': hasEmailError,
+            })}
+            type="text"
+            id='em'
+            placeholder='Enter your Email'
+            autoComplete='off'
+            value={email}
+            onChange={handleEmailChange}
+            onBlur={handleEmailBlur}
+          />
+        </div>
 
-        <button type="button" className="auth__form-visible" onClick={togglePasswordVisibility}>
-          {showPassword
-            ? <img src={hasPasswordError ? visibleOnRed : visibleOn} alt="видно" />
-            : <img src={hasPasswordError ? visibleOffRed : visibleOff} alt="не видно" />
-          }
+        <div className="auth__form-message">
+          {hasEmailError ? (
+            <div className='auth__form-error'>
+              <span className='auth__form-error-mark'>!</span>
+              <p className='auth__form-error-text'>{hasEmailError}</p>
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </div>
+
+        <label
+          className={classNames('auth__form-label', {
+            'auth__form-label--err': hasPasswordError,
+          })}
+          htmlFor="pass"
+        >
+          Password
+        </label>
+
+        <div
+          className={classNames('auth__form-border', {
+            'auth__form-border--err': hasPasswordError,
+          })}
+        >
+          <input
+            className={classNames('auth__form-input', {
+              'auth__form-input--err': hasPasswordError,
+            })}
+            id='pass'
+            placeholder='Enter your Password'
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            maxLength={30}
+            value={password}
+            onBlur={handlePasswordBlur}
+            onChange={handlePasswordChange}
+          />
+
+          <button type="button" className="auth__form-visible" onClick={togglePasswordVisibility}>
+            {showPassword
+              ? <img src={hasPasswordError ? visibleOnRed : visibleOn} alt="видно" />
+              : <img src={hasPasswordError ? visibleOffRed : visibleOff} alt="не видно" />
+            }
+          </button>
+        </div>
+
+        <div className="auth__form-message">
+          {hasPasswordError ? (
+            <div className='auth__form-error'>
+              <span className='auth__form-error-mark'>!</span>
+              <p className='auth__form-error-text'>{hasPasswordError}</p>
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </div>
+
+        <Link className='auth__form-question' to='/'>Forgot password?</Link>
+
+        <button
+          className='auth__form-logbutton'
+          disabled={disable}
+          onClick={onFinish}
+        >
+          Login
         </button>
-      </div>
 
-      <div className="auth__form-message">
-        {hasPasswordError ? (
-          <div className='auth__form-error'>
-            <span className='auth__form-error-mark'>!</span>
-            <p className='auth__form-error-text'>{hasPasswordError}</p>
-          </div>
-        ) : (
-          <p></p>
-        )}
-      </div>
+        <div className="auth__form-decor">
+          <span className="auth__form-decor-line"></span>
+          <span className="auth__form-decor-text">or</span>
+          <span className="auth__form-decor-line"></span>
+        </div>
 
-      <Link className='auth__form-question' to='/'>Forgot password?</Link>
+        <div className="auth__form-buttons">
+          <button className="auth__form-button" onClick={()=>handleGoogle()}>
+            <img src={google} alt="google" className="auth__form-button-img" />
+            Google
+          </button>
 
-      <button
-        className='auth__form-logbutton'
-        disabled={disable}
-        onClick={onFinish}
-      >
-        Login
-      </button>
-
-      <div className="auth__form-decor">
-        <span className="auth__form-decor-line"></span>
-        <span className="auth__form-decor-text">or</span>
-        <span className="auth__form-decor-line"></span>
-      </div>
-
-      <div className="auth__form-buttons">
-        <button className="auth__form-button">
-          <img src={google} alt="google" className="auth__form-button-img" />
-          Google
-        </button>
-
-        <button className="auth__form-button">
-          <img src={facebook} alt="facebook" className="auth__form-button-img" />
-          Facebook
-        </button>
+          <button className="auth__form-button">
+            <img src={facebook} alt="facebook" className="auth__form-button-img" />
+            Facebook
+          </button>
+        </div>
       </div>
 
       <div className="auth__form-box">
