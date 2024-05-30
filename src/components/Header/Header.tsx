@@ -1,10 +1,11 @@
 import './Header.scss';
 import '../../styles/page.scss';
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
 export const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -141,17 +142,13 @@ export const Header = () => {
           <img src="images/language-logo.svg" className='header__button-language-img' />
           <h1>UA</h1>
         </button>
-        <h2 className='header__button-log'>Log in</h2>
+        <NavLink to='/login'>
+          <h2 className='header__button-log'>Log in</h2>
+        </NavLink>
       </div>
       <div className='header__button-log-container'>
-            <NavLink to='/login' className='header__menu__link'>
-              Log in
-            </NavLink>
-            <NavLink to='/signin' className='header__menu__link'>
-              Sign in
-            </NavLink>
         <h2 className='header__button-log header__button-log-mobile'>Log in</h2>
-        <button className="page__button header__button">
+        <button className="page__button header__button" onClick={()=> navigate('/signin')}>
           Sign up
         </button>
       </div>
