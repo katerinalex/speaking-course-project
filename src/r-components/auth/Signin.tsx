@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import axios from 'axios';
@@ -78,11 +78,12 @@ const Signin = () => {
       const data = {
         email: email,
         password: password,
+        repeatPassword: password,
       };
   
       try {
         setLoader(true);
-        const response = await axios.post('http://a', data, {
+        const response = await axios.post('http://localhost:8080/auth/register', data, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -125,6 +126,44 @@ const Signin = () => {
     });
   };
   
+  useEffect(() => {
+    // Ініціалізація Facebook SDK
+    window.fbAsyncInit = function() {
+      window.FB.init({
+        appId: 'ВАШ_APP_ID', // Замість ВАШ_APP_ID вставте ваш App ID з Facebook Developer
+        cookie: true,
+        xfbml: true,
+        version: 'v10.0',
+      });
+
+      window.FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id) {
+      const fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      const js = d.createElement(s) as HTMLScriptElement;
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      if (fjs && fjs.parentNode) {
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    })(document, 'script', 'facebook-jssdk');
+  }, []);
+
+  const handleFBLogin = () => {
+    window.FB.login((response: fb.StatusResponse) => {
+      if (response.authResponse) {
+        console.log('Welcome! Fetching your information.... ');
+        window.FB.api('/me', { fields: 'name,email,picture' }, (userInfo) => {
+          console.log(userInfo);
+          // Тут ви можете обробити дані користувача, які повертає Facebook
+        });
+      } else {
+        console.log('User cancelled login or did not fully authorize.');
+      }
+    }, { scope: 'public_profile,email' });
+  };
 
   return (
     <div className='auth__form'>
@@ -258,7 +297,12 @@ const Signin = () => {
           </button>
 
           <button className="auth__form-button">
-            <img src={facebook} alt="facebook" className="auth__form-button-img" />
+            <img 
+              src={facebook} 
+              alt="facebook" 
+              className="auth__form-button-img"
+              onClick={()=> handleFBLogin()} 
+            />
             Facebook
           </button>
         </div>
