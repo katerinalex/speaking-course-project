@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import {gapi} from 'gapi-script';
-import FacebookLogin from 'react-facebook-login';
 import visibleOn from '../../assets/icons/Eye.svg';
 import visibleOff from '../../assets/icons/Eye Closed.svg';
 import visibleOnRed from '../../assets/icons/Eye Red.svg';

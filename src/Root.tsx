@@ -2,8 +2,8 @@ import { Routes, Route, HashRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage/HomePage";
 import App from "./App";
 import AuthPage from "./pages/AuthPages/AuthPage";
-import Login from "./r-components/auth/Login";
-import Signin from "./r-components/auth/Signin";
+import Login from "./components/Auth/Login";
+import Signin from "./components/Auth/Signin";
 
 export const Root = () => {
   return (
