@@ -1,6 +1,6 @@
-@import './typography';
-@import './variables';
-@import './mixins';
+@import './utils/typography';
+@import './utils/variables';
+@import './utils/mixins';
 
 .form {
   @include onTablet {
