@@ -50,24 +50,16 @@
     align-items: center;
   }
 
-  @include onTablet {
-
-  }
-
-  @include onDesktop {
-
-  }
-
   &__form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
     width: 100%;
     padding: 8px 16px;
     background-color: #252A26;
 
     @include onTablet {
-      justify-content: space-between;
       max-width: 320px;
       height: 580px;
       padding: 32px 16px;
@@ -75,7 +67,6 @@
     }
 
     @include onDesktop {
-      justify-content: space-between;
       max-width: 430px;
       height: 650px;
       padding: 40px;
@@ -250,10 +241,37 @@
           color: #B3B5B4;
         }
       }
-    
+
       &:hover {
         background-color: #854548;
         color: #FDFDFD;
+      }
+
+      &-reset {
+        @extend %poppins-600;
+        width: 100%;
+        height: 48px;
+        margin-bottom: 4px;
+        font-size: 16px;
+        line-height: 150%;
+        background-color: #F3C8CA;
+        color: #252A26;
+        border-radius: 8px;
+        border: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+  
+        &:disabled {
+          background-color: #F5EDEF;
+          color: #B3B5B4;
+          transition: background-color 0.3s ease, color 0.3s ease;
+      
+          &:hover {
+            background-color: #F5EDEF;
+            color: #B3B5B4;
+          }
+        }
       }
     }
 
@@ -343,12 +361,43 @@
       justify-content: center;
       gap: 8px;
       margin-top: 6px;
+      margin-bottom: 10px;
 
       &-text {
         @extend %poppins-400;
         font-size: 16px;
         line-height: 150%;
         color: #D4D4D4;
+
+        &-right {
+          @extend %poppins-400;
+          text-decoration: underline;
+          cursor: pointer;
+          font-size: 16px;
+          line-height: 150%;
+          color: #D4D4D4;
+          text-align: right;
+        }
+      }
+
+      &-reset {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 6px;
+        margin-bottom: 10px;
+      }
+    }
+
+    &-restext {
+      @extend %poppins-400;
+      margin-bottom: 24px;
+      color: #D4D4D4;
+      font-size: 14px;
+      line-height: 150%;
+
+      @include onNoPhone {
+        margin-bottom: 32px;
       }
     }
   }

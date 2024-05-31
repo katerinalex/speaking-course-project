@@ -254,7 +254,7 @@ const Login = () => {
           )}
         </div>
 
-        <Link className='auth__form-question' to='/'>
+        <Link className='auth__form-question' to='/reset'>
           <p className='auth__form-question'>Forgot password?</p>
         </Link>
 

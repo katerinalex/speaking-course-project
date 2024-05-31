@@ -4,6 +4,7 @@ import App from "./App";
 import AuthPage from "./pages/AuthPages/AuthPage";
 import Login from "./components/Auth/Login";
 import Signin from "./components/Auth/Signin";
+import ResetPassword from "./components/Auth/ResetPassword";
 
 export const Root = () => {
   return (
@@ -11,6 +12,7 @@ export const Root = () => {
       <Routes>
         <Route path="/login" element={<AuthPage page={<Login/>} />} />
         <Route path="/signin" element={<AuthPage page={<Signin/>} />} />
+        <Route path="/reset" element={<AuthPage page={<ResetPassword/>} />} />
 
         <Route path="/" element={<App />} >
           <Route index element={<HomePage />} />
