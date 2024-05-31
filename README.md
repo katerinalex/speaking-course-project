@@ -1,3 +1,8 @@
+https://www.figma.com/file/SiHCD0sZux6Kdoic4qmiFx/Public-speaking-course?type=design&node-id=757-18299&mode=design&t=rVkTZ9RfHvhYRI9E-0
+
+https://github.com/katerinalex/speaking-course-project
+
+
 <<<<<<< HEAD
 # Getting Started with Create React App
 
