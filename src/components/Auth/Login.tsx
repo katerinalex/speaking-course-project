@@ -20,18 +20,20 @@ const Login = () => {
   const [disable, setDisable] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [hasError, setHasError] = useState(true);
 
   const navigate = useNavigate();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
     setHasEmailError('');
+    setHasError(false);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     setHasPasswordError('');
+    setHasError(false);
   };
 
   const handleEmailBlur = () => {
@@ -42,20 +44,20 @@ const Login = () => {
       !email.includes('.') ||
       !/\.[A-Za-z]+$/.test(email)
     ) {
-      setHasEmailError('Введіть коректну адресу електронної пошти');
+      setHasEmailError('Mail is not correct');
       setHasError(true);
     }
   };
 
   const handlePasswordBlur = () => {
     if (/\s/.test(password) || /[^\S ]/.test(password)) {
-      setHasPasswordError('Введіть пароль без пробілів');
+      setHasPasswordError('Enter your password without spaces');
       setHasError(true);
     } else if (password.length === 0) {
-      setHasPasswordError('Введіть пароль');
+      setHasPasswordError('Enter your password');
       setHasError(true);
     } else if (password.length < 8) {
-      setHasPasswordError('Пароль повинен містити не менше 8 символів');
+      setHasPasswordError('The password must contain at least 8 characters');
       setHasError(true);
     }
   };
@@ -84,11 +86,11 @@ const Login = () => {
             'Content-Type': 'application/json'
           }
         });
-        navigate('/після логіну закине куди треба');
+       // navigate('/після логіну закине куди треба');
   
         console.log('Логін успішний:', response);
       } catch (error) {
-        setError('Схоже сталась помилка, перевірте правильність почти та паролю');
+        setError('An error occurred, please try again!');
         console.error('Login error:', error);
       } finally {
         setLoader(false);
@@ -101,7 +103,7 @@ const Login = () => {
     gapi.load('auth2', () => {
       gapi.auth2.init({
         client_id: "ключ гугла",
-        prompt: 'select_account', //параметр prompt на 'select_account' //параметр prompt на 'select_account тоді можемо вибрати серед акаунтів гугловських'
+        prompt: 'select_account', //параметр prompt на 'select_account тоді можемо вибрати серед акаунтів гугловських'
       }).then(() => {
         const auth2 = gapi.auth2.getAuthInstance();
         auth2.signIn().then((googleUser: any) => {
@@ -123,7 +125,7 @@ const Login = () => {
   }
   
   useEffect(() => {
-    // Ініціалізація Facebook SDK
+  
     window.fbAsyncInit = function() {
       window.FB.init({
         appId: 'ВАШ_APP_ID', // Замість ВАШ_APP_ID вставте ваш App ID з Facebook Developer
@@ -153,7 +155,7 @@ const Login = () => {
         console.log('Welcome! Fetching your information.... ');
         window.FB.api('/me', { fields: 'name,email,picture' }, (userInfo) => {
           console.log(userInfo);
-          // Тут ви можете обробити дані користувача, які повертає Facebook
+          // обробити дані користувача, які повертає Facebook
         });
       } else {
         console.log('User cancelled login or did not fully authorize.');
@@ -252,7 +254,9 @@ const Login = () => {
           )}
         </div>
 
-        <Link className='auth__form-question' to='/'>Forgot password?</Link>
+        <Link className='auth__form-question' to='/'>
+          <p className='auth__form-question'>Forgot password?</p>
+        </Link>
 
         <button
           className='auth__form-logbutton'
@@ -261,6 +265,17 @@ const Login = () => {
         >
           Login
         </button>
+
+        <div className="auth__form-message">
+          {error ? (
+            <div className='auth__form-error'>
+              <span className='auth__form-error-mark'>!</span>
+              <p className='auth__form-error-text'>{error}</p>
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </div>
 
         <div className="auth__form-decor">
           <span className="auth__form-decor-line"></span>

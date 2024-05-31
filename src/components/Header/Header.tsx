@@ -100,7 +100,7 @@ export const Header = () => {
             <button className='header__button-language'>
               <img src="images/language-logo.svg" className='header__button-language-img' />
               <h1>UA</h1>
-           </button>
+            </button>
           </li>
         </ul>}
         </div>

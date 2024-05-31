@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../../styles/Auth.scss';
 import Logo from "../../assets/icons/Logo.svg";
 
-
 type Props = {
   page: React.ReactNode;
 }
