@@ -1,3 +1,5 @@
+@import './variables';
+
 @font-face {
   font-family: Poppins-Regular;
   src: url(../../src/fonts/Poppins-Regular.ttf);
@@ -29,4 +31,50 @@
 %poppins-700 {
   font-family: Poppins-Semibold, sans-serif;
   font-weight: 700;
+}
+
+.title {
+  @extend %poppins-500;
+  font-size: 48px;
+  line-height: 100%;
+
+  &--H2 {
+    font-size: 40px;
+    line-height: 100%;
+  }
+
+  &--H3 {
+    font-size: 32px;
+    line-height: 130%
+  }
+
+  &--H4 {
+    font-size: 24px;
+    line-height: 145%
+  }
+
+  &--H5 {
+    font-size: 22px;
+    line-height: 150%
+  }
+
+  &--H6 {
+    font-size: 18px;
+    line-height: 150%
+  }
+}
+
+.body-text {
+  @extend %poppins-400;
+  font-size: 16px;
+  line-height: 150%;
+
+  &--secondary {
+    font-size: 14px;
+  }
+
+  &--small-text {
+    font-size: 12px;
+  }
+
 }

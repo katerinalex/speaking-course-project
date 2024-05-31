@@ -2,17 +2,15 @@
 @import './variables';
 
 .page {
-
-  &__title {
+  .title {
     @extend %poppins-500;
     font-size: 48px;
     line-height: 100%;
     color: $header-button-and-title-active-color;
-
-    &_medium {
-      @extend %poppins-500;
-      line-height: 100%;
+  
+    &_medium { //pls change for unification
       font-size: 40px;
+      line-height: 100%;
     }
   }
 
