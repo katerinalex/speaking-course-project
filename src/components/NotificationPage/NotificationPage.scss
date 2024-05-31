@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  max-width: 990px;
+  margin-top: 32px;
+  margin-left: 56px;
+
+  &__text {
+    padding: 16px;
+    background-color: $primary-green;
+    color: $gray-10;
+    border-radius: 8px;
+  }
+}
+
+.mark-all {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: auto;
+
+  &__title {
+    color: $gray-80;
+  }
+
+  &__button {
+    padding: 16px 56px;
+  }
+}
