@@ -18,7 +18,7 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [hasPasswordError, setHasPasswordError] = useState('');
   const [check, setCheck] = useState(true);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(false); // не знаю на рахунок чи буде якись лоадер на всяк випадок добавив
   const [disable, setDisable] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -38,6 +38,7 @@ const Signin = () => {
     setHasError(false);
   };
 
+  //валідація для полів
   const handleEmailBlur = () => {
     if (
       !email.includes('@') ||
@@ -90,13 +91,13 @@ const Signin = () => {
         repeatPassword: password,
       };
 
-      axios.post('http://localhost:8080/auth/register', data, {
+      axios.post('http://localhost:8080/auth/register', data, { //вставте потрібне посилання а апішку реєстрації
         headers: {
           'Content-Type': 'application/json',
         },
       })
       .then(response => {
-        navigate('/після логіну закине куди треба');
+        navigate('/після логіну закине куди треба'); // не забудьте змінити
         console.log('Логін успішний:', response);
       })
       .catch(error => {
@@ -113,19 +114,20 @@ const Signin = () => {
   const handleGoogle = () => {
     gapi.load('auth2', () => {
       gapi.auth2.init({
-        client_id: "ключ гугла",
+        client_id: "ключ гугла", // сюди вставите ключ дасть бекенд гулла без нього не працюватиме 
         prompt: 'select_account', //параметр prompt на 'select_account тоді можемо вибрати серед акаунтів гугловських'
       }).then(() => {
         const auth2 = gapi.auth2.getAuthInstance();
         auth2.signIn().then((googleUser: any) => {
           const idToken = googleUser.getAuthResponse().id_token;
   
-          axios.post('на апі берем дані з гугла не забути фото спитати', {
+          // в фейсбуці такий же запрос як нижче добавити
+          axios.post(' http:// на апі берем дані з гугла не забути фото спитати', { //вставте потрібне посилання а апішку гугла
             "auth_token": idToken
           }).then(resp => {
-            Cookies.set('access_token', resp.data.tokens.access);
+            Cookies.set('access_token', resp.data.tokens.access);//спитаєте бек чи ми працюємо з access і refresh токенами якщо так то ці рядки записані в куки залишите
             Cookies.set('refresh_token', resp.data.tokens.refresh);
-            navigate('/account');
+            navigate('/account'); //після того як ми авторизувались тут адресу введіть на яку сторінку має перекинути юзера
             console.log(resp);
           });
         }).catch((error: any) => {
@@ -138,7 +140,7 @@ const Signin = () => {
   useEffect(() => {
     window.fbAsyncInit = function() {
       window.FB.init({
-        appId: 'ВАШ_APP_ID', // Замість ВАШ_APP_ID вставте ваш App ID з Facebook Developer
+        appId: 'ВАШ_APP_ID', // Замість ВАШ_APP_ID вставте ваш App ID з Facebook Developer в беку спитайте ключ
         cookie: true,
         xfbml: true,
         version: 'v10.0',
@@ -165,7 +167,7 @@ const Signin = () => {
         console.log('Welcome! Fetching your information.... ');
         window.FB.api('/me', { fields: 'name,email,picture' }, (userInfo) => {
           console.log(userInfo);
-          // Тут обробити дані користувача, які повертає Facebook
+          // Тут обробити дані користувача, які повертає Facebook зробити запит на апішку фейсбуку  ліпше гляньте ше документацію так як я не працював з фейсбуком ще лиш з гуглом
         });
       } else {
         console.log('User cancelled login or did not fully authorize.');

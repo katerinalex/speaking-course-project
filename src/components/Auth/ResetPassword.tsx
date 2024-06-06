@@ -9,7 +9,6 @@ const ResetPassword = () => {
   const [loader, setLoader] = useState(false);
   const [disable, setDisable] = useState(false);
   const [error, setError] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const [hasError, setHasError] = useState(true);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +16,6 @@ const ResetPassword = () => {
     setHasEmailError('');
     setHasError(false);
   };
-
 
   const handleEmailBlur = () => {
     if (
@@ -31,7 +29,6 @@ const ResetPassword = () => {
       setHasError(true);
     }
   };
-
 
   const onFinish = async () => {
     setHasError(false);
