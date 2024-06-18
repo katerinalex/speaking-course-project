@@ -3,7 +3,6 @@ https://www.figma.com/file/SiHCD0sZux6Kdoic4qmiFx/Public-speaking-course?type=de
 https://github.com/katerinalex/speaking-course-project
 
 
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -50,6 +49,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-=======
 # speaking-course-project
->>>>>>> 28d25f016bb4bccf6004b5b2523565bd3ddb0faa

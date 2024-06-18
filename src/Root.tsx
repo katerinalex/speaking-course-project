@@ -6,6 +6,10 @@ import Login from "./components/Auth/Login";
 import Signin from "./components/Auth/Signin";
 import ResetPassword from "./components/Auth/ResetPassword";
 
+import { AdminCoursesPreview } from "./components/AdminCoursesPreview"
+import { AdminCoursesEdit } from "./components/AdminCoursesEdit";
+
+
 export const Root = () => {
   return (
     <HashRouter>
@@ -16,6 +20,11 @@ export const Root = () => {
 
         <Route path="/" element={<App />} >
           <Route index element={<HomePage />} />
+        </Route>
+        <Route path="/preview" element={<AdminCoursesPreview />} > {/* admin/courses/preview */}
+        </Route>
+
+        <Route path="/edit" element={<AdminCoursesEdit />} > {/* admin/courses/edit */}
         </Route>
       </Routes>
     </HashRouter>

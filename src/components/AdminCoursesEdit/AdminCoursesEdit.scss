@@ -1,0 +1,81 @@
+.adminPage {
+  &__content {
+    padding: 20px 30px;
+
+    &__lang {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &__eu {
+        padding: 5px 50px;
+        background-color: #F4F6F3;
+      }
+
+      &__ua {
+        padding: 5px 50px;
+        border: 1px solid #F4F6F3;
+      }
+    }
+
+    &__basic {
+      width: 100%;
+      background-color: #F4F6F3;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      // align-items: center;
+
+      &__info {
+        width: 100%;
+        padding: 10px;
+        background-color: #F4F6F3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        &__input {
+          width: 100%;
+          height: 30px;
+          border-radius: 5px;
+
+          &--radio {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    &__direction {
+      display: flex;
+      flex-direction: row;
+      background-color: #F4F6F3;
+  
+      &__items {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 150px;
+
+        padding: 10px;
+      }
+    }
+
+    &__skill {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #F4F6F3;
+
+      &__input {
+        width: 100%;
+        margin: 10px;
+      }
+    }
+  }
+}
