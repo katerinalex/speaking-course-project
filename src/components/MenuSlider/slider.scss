@@ -1,11 +1,31 @@
-@import '../../styles/typography';
-@import '../../styles/variables';
+@import '../../styles/utils/typography';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .slider {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   gap: 16px;
+  // width: 100%;
   margin: 40px 0 80px;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+
+  @include onPhoneAndTablet {
+    // display: none;
+    gap: 8px;
+    margin: 24px 0 32px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-desktop {
+    @include onPhoneAndTablet {
+      display: none;
+    }
+  }
 
   &__title {
     display: flex;
@@ -19,11 +39,18 @@
     border-radius: 32px;
     height: 67px;
     width: max-content;
+    // width: 400px;
     padding: 0 24px 0;
 
+
+    @include onPhoneAndTablet {
+      font-size: 14px;
+      height: 37px;
+    }
+
     &-second {
-      color: $slider-title-color-second;
-      border: 1px solid $slider-title-color-second;
+      color: $slider-title-and-hover-color-second;
+      border: 1px solid $slider-title-and-hover-color-second;
     }
   }
 }

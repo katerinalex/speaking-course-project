@@ -1,12 +1,21 @@
-@import '../../styles/typography';
-@import '../../styles/variables';
+@import '../../styles/utils/typography';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .history {
   margin-bottom: 80px;
 
+  @include onPhone {
+    margin-bottom: 32px;
+  }
+
   &__title {
     text-align: start;
     margin-bottom: 40px;
+
+    @include onPhoneAndTablet {
+      margin-bottom: 16px;
+    }
   }
 
   &__paragraph {
@@ -16,6 +25,54 @@
     font-size: 18px;
     width: 579px;
     text-align: start;
+
+    @include onPhone {
+      font-size: 14px;
+      width: 100%;
+      height: 126px;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+
+    @include onTablet {
+      margin-top: 40px;
+      margin-left: 16px;
+      font-size: 16px;
+      width: 264px;
+      max-width: 100%;
+      height: 264px;
+      display: -webkit-box;
+      -webkit-line-clamp: 11;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &-container {
+      width: 100%;
+      // display: flex;
+    }
+  }
+
+  &__ellipsis {
+    display: none;
+
+    @include onPhone {
+      display: block;
+    }
+  }
+
+  &__main-container {
+    background-color: $history-back-color;
+
+    @include onDesktop {
+      // width: 100%;
+      // margin: auto;
+
+    }
   }
 
   &-container {
@@ -23,14 +80,61 @@
     justify-content: space-around;
     border-radius: 8px;
     background-color: $history-back-color;
+    // width: 100%;
+
+    @include onPhone {
+      padding: 8px;
+      gap: 8px;
+    }
+
+    @include onTablet {
+      min-width: 592px;
+      max-width: 800px;
+      height: 480px;
+      margin: auto;
+    }
+
+    @include onDesktop {
+      width: 1250px;
+      padding: 0 40px 0;
+      margin: auto;
+      // display: flex;
+      // j
+      // display: flex;
+      // justify-content: space-around;
+    }
+  }
+
+  &__main-img {
+    @include onPhone {
+      width: 134px;
+      height: 218px;
+      object-fit: cover;
+    }
+
+    @include onTablet {
+      width: 296px;
+      height: 480px;
+      object-fit: cover;
+    }
   }
 
   &-img {
+
     &-container {
       display: flex;
       justify-content: start;
       gap: 16px;
       margin-bottom: 158px;
+
+      @include onPhone {
+        margin-bottom: 16px;
+      }
+
+      @include onTablet {
+        margin-left: 16px;
+        margin-bottom: 59px;
+      }
     }
   }
 
@@ -41,6 +145,15 @@
     // justify-content: start;
     // align-items: center;/
     // text-align: center;
+
+    @include onPhone {
+      width: 100%;
+    }
+
+    @include onTablet {
+      margin-left: 16px;
+      margin-bottom: 40px;
+    }
 
     &-container {
       display: flex;
