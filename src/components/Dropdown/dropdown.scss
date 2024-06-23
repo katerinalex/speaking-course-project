@@ -1,0 +1,77 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.dropdown {
+  position: relative;
+  margin-top: 22px;
+  width: 100%;
+  // @include onPhoneAndOnTablet {
+  //   width: 100%;
+  // }
+
+  @include onDesktop {
+    width: 426px;
+  }
+
+  &__title {
+    @extend %poppins-400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &__toggle {
+    position: absolute;
+    right: 22px;
+    bottom: 24px;
+    background-image: url(../../../public/images/arrow-img.svg);
+    width: 12.2px;
+    height: 8px;
+  }
+
+  &__subtitle {
+    position: absolute;
+    text-align: start;
+    @extend %poppins-400;
+    color: #959595;
+    line-height: 150%;
+    font-size: 12px;
+
+    @include onPhone {
+      // margin-left: 16px;
+      left: 30px;
+      top: -15px;
+    }
+
+    @include onTablet {
+      font-size: 18px;
+      left: 0;
+      top: -23px;
+    }
+
+    @include onDesktop {
+      font-size: 18px;
+      left: 0;
+      top: -23px;
+    }
+
+    &-container {
+      position: relative;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 42px;
+    // max-width: 426px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    outline: none;
+    text-align: start;
+    // margin-left: 16px;
+    padding-left: 16px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    background: none;
+  }
+}

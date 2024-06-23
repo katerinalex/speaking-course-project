@@ -1,0 +1,135 @@
+@import '../../styles/typography';
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.success {
+
+  margin: 8px 16px 0;
+
+  @include onTablet {
+    margin: 24px 24px 0;
+  }
+
+  @include onDesktop {
+    margin: 32px 56px 0;
+  }
+
+  &__main-title {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__title {
+    @extend %poppins-500;
+    text-align: start;
+    font-size: 24px;
+    line-height: 145%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      font-size: 32px;
+      line-height: 130%;
+    }
+
+    &_medium {
+      text-align: start;
+      margin-bottom: 8px;
+
+      @include onTablet {
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-flex {
+      @include onTablet {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__paragraph {
+    text-align: start;
+    
+  }
+
+  &-container {
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+    &-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      margin-bottom: 32px;
+
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+
+    }
+
+    &-flex {
+
+      @include onTablet {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      
+      &_conversely {
+        @include onTablet {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    &-desktop {
+      @include onDesktop {
+        display: flex;
+        gap: 40px;
+        justify-content: space-between;
+      }
+
+      &-first {
+        margin-top: 40px;
+      }
+
+      &-reverse {
+        @include onDesktop {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    &-article {
+
+      @include onTablet {
+        width: 48%;
+      }
+
+      &-desktop {
+        @include onDesktop {
+          width: 48%;
+        }
+      }
+    }
+  }
+
+  &-img {
+    width: 100%;
+  }
+}
