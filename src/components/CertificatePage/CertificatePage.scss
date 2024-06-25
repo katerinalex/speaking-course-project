@@ -1,0 +1,45 @@
+@import '../../styles/variables';
+
+.certificate {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  max-width: 990px;
+  margin-top: 32px;
+  margin-left: 56px;
+
+  &__text {
+    padding: 16px;
+    background-color: $primary-green;
+    color: $gray-10;
+    border-radius: 8px;
+  }
+
+  &__second-title {
+    color: $gray-80;
+  }
+}
+
+.get-certificate-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: auto;
+
+  &__title {
+    color: $gray-80;
+  }
+
+  &__button {
+    padding: 12px 19px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
