@@ -80,7 +80,25 @@ const Login = () => {
         password: password,
       };
   
-      с
+      try {
+        setLoader(true);
+        const response = await axios.post('http://localhost:8080/auth/login', data, { //вставте потрібне посилання а апішку логіну
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        navigate('/після логіну закине куди треба'); // не забудьте змінити
+        console.log('Логін успішний:', response);
+      } catch (error) {
+        setError('An error occurred, please try again!');
+        console.error('Login error:', error);
+      } finally {
+        setLoader(false);
+        setDisable(false);
+      }
+    }
+  };
 
   const handleGoogle = () => {
     gapi.load('auth2', () => {

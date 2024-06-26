@@ -28,6 +28,15 @@
       margin: 0;
     }
 
+    &__main {
+      &-img {
+
+        @include onPhone {
+          width: 100%;
+        }
+      }
+    }
+
     &__title {
       text-align: start;
       margin-bottom: 8px;

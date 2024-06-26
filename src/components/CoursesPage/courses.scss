@@ -1,0 +1,186 @@
+@import '../../styles/utils/typography';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.courses {
+    margin: 8px 16px 0;
+
+    @include onTablet {
+      margin: 24px 24px 0;
+    }
+
+    @include onDesktop {
+      margin: 32px 56px 0;
+    }
+
+  &__title {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__subtitle {
+    @extend %poppins-400;
+    color: $slider-title-and-hover-color-second;
+    font-size: 14px;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__cards {
+    &-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+
+      @include onDesktop {
+        gap: 16px;
+      }
+    }
+  }
+
+  &-flexible {
+    &-container {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      @extend %poppins-400;
+      height: 44px;
+      width: 100%;
+      line-height: 150%;
+      font-size: 14px;
+      border: 2px solid $button-title-color;
+      color: $slider-title-and-hover-color-second;
+
+      @include onTablet {
+        height: 56px;
+        font-size: 16px;
+        // width: 114px;
+      }
+
+      &-active {
+        background-color: $button-title-color;
+      }
+
+      &-desktop {
+        display: block;
+        width: 652px;
+        height: 153px;
+      }
+
+      &__title {
+        @include onTablet {
+          width: 114px;
+        }
+
+        &-desktop {
+          @extend %poppins-500;
+          color: $slider-title-and-hover-color-second;
+          font-size: 22px;
+          line-height: 150%;
+          text-align: start;
+          // display: block;
+        }
+      }
+
+      &__paragraph {
+        &-desktop {
+          @extend %poppins-400;
+          text-align: start;
+          color: $header-button-and-title-active-color;
+          font-size: 16px;
+          line-height: 150%;
+          // display: flex;
+
+        }
+      }
+
+
+      &-container {
+        display: flex;
+        gap: 4px;
+      }
+    }
+
+    &__paragraph {
+      @extend %poppins-400;
+      background-color: #f4f6f3;
+      padding: 8px;
+      text-align: start;
+      color: #0e0e0e;
+      font-size: 14px;
+      line-height: 150%;
+      margin-bottom: 8px;
+
+      @include onPhone {
+        min-height: 247px;
+      }
+
+      @include onTablet {
+        padding: 16px;
+        min-height: 176px;
+        font-size: 16px;
+      }
+
+      &-desktop {
+        display: none;
+
+        @include onDesktop {
+          display: flex;
+          // justify-content: center;
+          flex-wrap: wrap;
+          width: 1328px;
+          gap: 24px;
+          margin-top: 24px;
+        }
+      }
+    }
+
+    &__subtitle {
+      @extend %poppins-400;
+      font-size: 12px;
+      line-height: 150%;
+      text-align: end;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__dropdown {
+    &-container {
+      @include onTablet {
+        display: flex;
+        // gap: 16px;
+        gap: 16px;
+        max-width: 877px;
+        // justify-content: space-between;
+        // justify-content: space-around;
+        margin-top: 24px;
+      }
+
+      @include onDesktop {
+        display: flex;
+        gap: 24px;
+      }
+    }
+  }
+}

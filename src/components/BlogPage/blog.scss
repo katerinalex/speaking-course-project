@@ -1,0 +1,214 @@
+@import '../../styles/utils/typography';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.blog {
+
+  margin: 8px 16px 0;
+
+  @include onTablet {
+    margin: 24px 24px 0;
+  }
+
+  @include onDesktop {
+    margin: 32px 56px 0;
+  }
+
+  &-container {
+
+    @include onDesktop {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    &-topic {
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 40px;
+      }
+    }
+
+    &-paragraph {
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 47%;
+      }
+    }
+
+    &-about {
+      @include onDesktop {
+        position: relative;
+      }
+    }
+  }
+
+  &__title {
+    text-align: start;
+
+    &_medium {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      line-height: 145%;
+      font-size: 24px;
+
+      @include onTablet {
+        margin-top: 24px;
+        font-size: 32px;
+        line-height: 130%;
+      }
+
+      @include onDesktop {
+        // width: 60%;
+        // display: inline-block;
+        // text-align: start;
+      }
+    }
+  }
+
+  &__subtitle {
+    @extend %poppins-500;
+    text-align: start;
+    color: $header-button-and-title-active-color;
+    line-height: 150%;
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      font-size: 18px;
+    }
+
+    @include onDesktop {
+      font-size: 22px;
+      width: 90%;
+    }
+
+    &-list {
+      @include onDesktop {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__main {
+    &-img {
+      margin-top: 8px;
+      margin-bottom: 16px;
+      width: 100%;
+
+      height: auto;
+      min-height: 240px;
+      background-image: url(../../../public//images/blog-main-img.png);
+      background-position: 50% 13%;
+      background-repeat: no-repeat;
+      background-size: 100%;
+
+      border-radius: 8px;
+    //   background-size: cover;
+
+      @include onTablet {
+        margin-top: 24px;
+        height: 448px;
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        height: 726px;
+        margin: 0;
+      }
+
+    }
+  }
+
+  &-img {
+    width: 100%;
+
+    @include onTablet {
+    //   height: 433px;
+    }
+  }
+
+  &__list {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include onDesktop {
+      width: 90%;
+    }
+  }
+
+  &__item {
+    position: relative;
+    @extend %poppins-400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-left: 26px;
+    list-style: none;
+    // list-style-image: url(../../../public/images/mark-img.svg);
+    
+    // display: flex;
+    
+    // align-items: center;
+
+    &::before {
+      position: absolute;
+      content: url(../../../public/images/mark-img.svg);
+      left: -28px;
+
+    }
+  }
+
+  &__caption {
+    margin-top: 8px;
+    text-align: start;
+    @extend %poppins-500;
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-top: 16px;
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__paragraph {
+    text-align: start;
+    @extend %poppins-400;
+    line-height: 150%;
+    font-size: 16px;
+    color: $header-button-and-title-active-color;
+
+    @include onDesktop {
+      // width: 60%;
+    }
+
+    &-addition {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+}
