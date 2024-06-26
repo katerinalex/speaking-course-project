@@ -103,12 +103,13 @@
       font-size: 16px;
       line-height: 150%;
       text-align: start;
-
+      cursor: pointer;
       &-container {
         display: none;
 
         @include onTablet {
           display: block;
+          cursor: pointer;
         }
       }
 
