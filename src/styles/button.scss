@@ -1,0 +1,20 @@
+@import './typography';
+@import './variables';
+
+.button {
+  @extend %poppins-700;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  border: 0;
+  border-radius: 8px;
+
+  &--pink {
+    background-color: $primary-rose;
+    color: $gray-90;
+    :hover {
+      background-color: $additional-brown;
+      color: $gray-10;
+    }
+  }
+}
