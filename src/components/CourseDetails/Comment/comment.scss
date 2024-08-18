@@ -1,0 +1,32 @@
+@import '../../../styles/utils/typography';
+@import '../../../styles/utils/variables';
+@import '../../../styles/mixins';
+
+.comment {
+  width: 400px;
+  height: 301px;
+  padding: 24px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  @include onPhone {
+    width: 188px;
+  }
+
+  &__title {
+    @extend %poppins-500;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: start;
+  }
+
+  &__paragraph {
+    @extend %poppins-400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: start;
+
+    @include onPhone {
+      font-size: 12px;
+    }
+  }
+}

@@ -6,6 +6,7 @@
 
   &__title {
     @extend %poppins-500;
+    text-align: start;
     font-size: 48px;
     line-height: 100%;
     color: $header-button-and-title-active-color;
@@ -31,13 +32,11 @@
       font-size: 14px;
     }
   }
-  
 
   &__button {
     @extend %poppins-700;
     background-color:$button-back-color;
     border: 0;
-    // width: 201px;
     height: 48px;
     border-radius: 10px;
     color: $header-button-and-title-active-color;
@@ -58,5 +57,21 @@
       border: none;
       border-radius: 8px;
     }
+
+    &-tertiary {
+      @extend %poppins-700;
+      color: $header-button-and-title-active-color;
+      background-color: #fff;
+      border: 1px solid $primary-green;
+      border-radius: 8px;
+    }
+  }
+
+  &-poppins-400 {
+    @extend %poppins-400;
+  }
+
+  &-poppins-500 {
+    @extend %poppins-500;
   }
 }

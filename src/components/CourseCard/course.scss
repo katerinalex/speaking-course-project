@@ -35,8 +35,14 @@
     @include onTablet {
       // width: 288px;
       width: 100%;
+      max-width: 432px;
+
       // max-width: 100%;
       height: 288px;
+    }
+
+    @include onDesktop {
+      max-width: 652px;
     }
 
     &-img {

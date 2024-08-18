@@ -1,0 +1,478 @@
+@import "../../styles/utils/typography";
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.details {
+  margin: 0 16px 0;
+
+  @include onTablet {
+    margin: 0 32px 0;
+  }
+
+  @include onDesktop {
+    margin: 0 56px 0;
+  }
+
+  &__title {
+    text-align: start;
+    margin-bottom: 40px;
+
+    @include onPhoneAndTablet {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    &-container {
+      @include onPhone {
+        display: block;
+      }
+
+      @include onTablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+      }
+    }
+  }
+
+  &__subtitle {
+    @extend %poppins-400;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &-img {
+    @include onPhone {
+      width: 100%;
+    }
+  }
+
+  &__main {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      @include onPhone {
+        display: block;
+        margin-top: 16px;
+      }
+
+      @include onTablet {
+        display: block;
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &__description {
+    &-container {
+      display: flex;
+      width: 100%;
+      gap: 24px;
+      margin-left: 24px;
+
+      @include onPhone {
+        display: block;
+        margin: 0;
+      }
+
+      @include onTablet {
+        margin-top: 24px;
+      }
+    }
+
+    &__title {
+      @extend %poppins-500;
+      font-size: 18px;
+      line-height: 150%;
+      width: 146px;
+      text-align: start;
+
+      @include onPhone {
+        margin: 16px 0 8px;
+      }
+    }
+
+    &__paragraph {
+      @extend %poppins-400;
+      line-height: 150%;
+      font-size: 16px;
+      margin-bottom: 71px;
+      text-align: start;
+      width: 482px;
+      max-width: 100%;
+
+      @include onTablet {
+        margin-bottom: 58px;
+      }
+
+      @include onPhone {
+        margin-bottom: 11px;
+      }
+    }
+
+    &__caption {
+      text-align: end;
+      @extend %poppins-500;
+      color: $primary-green;
+      font-size: 24px;
+      line-height: 145%;
+      margin-bottom: 71px;
+
+      @include onPhoneAndTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 318px;
+    text-decoration: none;
+
+    @include onPhone {
+      width: 100%;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 24px;
+
+      @include onPhone {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+      }
+
+      @include onTablet {
+        gap: 16px;
+      }
+    }
+  }
+
+  &-commercial {
+    &-container {
+      padding: 32px;
+      text-align: start;
+      background-color: #f4f6f3;
+      border-radius: 8px;
+      margin-bottom: 56px;
+
+      @include onTablet {
+        padding: 16px;
+      }
+    }
+
+    &__title {
+      @extend %poppins-500;
+      font-size: 32px;
+      line-height: 130%;
+      margin-bottom: 16px;
+
+      @include onPhone {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      @include onTablet {
+        margin-bottom: 8px;
+        font-size: 22px;
+      }
+    }
+
+    &__subtitle {
+      @extend %poppins-500;
+      font-size: 24px;
+      line-height: 145%;
+      margin-bottom: 24px;
+
+      @include onPhone {
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      @include onTablet {
+        margin-bottom: 16px;
+        font-size: 16px;
+      }
+
+      @include onPhone {
+        margin-bottom: 8px;
+      }
+    }
+
+    &__paragraph {
+      @extend %poppins-400;
+      font-size: 16px;
+      line-height: 150%;
+      margin-bottom: 8px;
+
+      @include onPhone {
+        font-size: 14px;
+      }
+    }
+
+    &__list {
+      margin-left: 24px;
+      margin-bottom: 24px;
+
+      @include onPhone {
+        margin-bottom: 8px;
+      }
+
+      @include onTablet {
+        margin-bottom: 16px;
+      }
+
+      &__subtitle {
+        @extend %poppins-500;
+        font-size: 16px;
+        line-height: 145%;
+      }
+    }
+
+    &__item {
+      font-size: 16px;
+      line-height: 145%;
+      color: #454c44;
+    }
+
+    &__caption {
+      @extend %poppins-500;
+      font-size: 22px;
+      line-height: 150%;
+
+      @include onPhone {
+        font-size: 16px;
+      }
+
+      @include onTablet {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-direction {
+    &__title {
+      @include onTablet {
+        margin-bottom: 16px;
+      }
+    }
+
+    &-container {
+      display: flex;
+      gap: 24px;
+      text-align: start;
+      margin-bottom: 56px;
+
+      @include onPhoneAndTablet {
+        display: block;
+      }
+    }
+
+    &__list {
+      margin-left: 24px;
+
+      &-container {
+        display: flex;
+        gap: 152px;
+
+        @include onPhone {
+          gap: 0;
+        }
+      }
+    }
+  }
+
+  &-stages {
+    &__title {
+      @extend %poppins-500;
+      font-size: 32px;
+      line-height: 130%;
+      text-align: start;
+      margin-bottom: 56px;
+
+      @include onPhone {
+        font-size: 24px;
+      }
+    }
+
+    &__caption {
+      @extend %poppins-500;
+      font-size: 18px;
+      line-height: 150%;
+      text-align: start;
+      margin-bottom: 56px;
+
+      @include onTablet {
+        font-size: 16px;
+      }
+
+      &-container {
+        display: flex;
+        gap: 24px;
+      }
+    }
+
+    &-step {
+      &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend %poppins-500;
+        font-size: 24px;
+        line-height: 145%;
+        min-width: 314px;
+        height: 67px;
+        border-radius: 32px;
+        color: #854548;
+        border: 1px solid #854548;
+
+        @include onPhone {
+          min-width: 100%;
+          width: 100%;
+          margin-bottom: 8px;
+        }
+
+        @include onTablet {
+          min-width: 181px;
+          height: 51px;
+        }
+
+        &-first {
+          background-color: #f5edef;
+        }
+
+        &-second {
+          background-color: #d0d9d7;
+        }
+
+        &-third {
+          visibility: hidden;
+
+          @include onPhoneAndTablet {
+            display: none;
+          }
+        }
+      }
+
+      &__paragraph {
+        @extend %poppins-500;
+        font-size: 22px;
+        line-height: 150%;
+        text-align: start;
+
+        @include onPhone {
+          font-size: 16px;
+        }
+
+        @include onTablet {
+          font-size: 18px;
+        }
+      }
+
+      &-container {
+        display: flex;
+        gap: 24px;
+
+        @include onPhone {
+          display: block;
+        }
+
+        @include onTablet {
+          align-items: center;
+        }
+
+        &-first {
+          margin-bottom: 71px;
+
+          @include onPhone {
+            margin-bottom: 32px;
+          }
+        }
+
+        &-second {
+          margin-bottom: 56px;
+
+          @include onPhone {
+            margin-bottom: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  &-module {
+    &-container {
+      display: flex;
+      // justify-content: space-between;
+      gap: 24px;
+
+      @include onDesktop {
+        margin-top: 40px;
+      }
+    }
+
+    &__title {
+      font-size: 22px;
+      line-height: 150%;
+      color: #959595;
+      width: max-content;
+      text-align: start;
+
+      &-container {
+        display: flex;
+        gap: 16px;
+      }
+    }
+
+    &__name {
+      font-size: 22px;
+      line-height: 150%;
+      text-align: start;
+
+      @include onDesktop {
+        width: 307px;
+      }
+    }
+
+    &__list {
+      text-align: start;
+
+      &-container {
+        text-align: start;
+      }
+
+      &__title {
+        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 150%;
+        color: #0e0e0e;
+      }
+    }
+
+    &__item {
+      font-size: 18px;
+      line-height: 150%;
+      color: #0e0e0e;
+      width: 100%;
+
+      &-secondary {
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e3e3e3;
+      }
+    }
+  }
+}

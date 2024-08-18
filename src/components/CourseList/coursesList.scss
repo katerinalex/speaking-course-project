@@ -1,0 +1,19 @@
+@import '../../styles/utils/typography';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+
+.courses {
+  &__list {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+
+    @include onDesktop {
+      gap: 16px;
+    }
+  }
+}
