@@ -1,0 +1,68 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.meditation {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__slide {
+    width: 188px;
+  }
+
+  &__item {  
+    background-color: $gray-20;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    @include onPhone {
+      width: 188px;
+      height: 242px;
+    }
+  }
+
+  &__photo {
+    border-radius: 8px;
+    object-fit: cover;
+
+    @include onPhone {
+      height: 128px;
+      width: 188px;
+    }
+  }
+
+  &__title {
+    padding: 24px;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    text-align: left;
+
+    @include onTablet {
+      gap: 0;
+      flex-direction: column;
+    }
+
+    @include onPhone {
+      gap: 0;
+      flex-direction: column;
+    }
+
+    &__module {
+      @include onTablet {
+        color: $gray-60;
+      }
+      
+      @include onPhone {
+        color: $gray-60;
+      }
+    }
+  }
+
+  &__explanation {
+    color: $gray-80;
+  }
+}

@@ -1,0 +1,65 @@
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/mixins';
+
+.webinar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+
+  &__zoom-icon {
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('../../../../public/icons/IconZoom.svg');
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__name {
+    color: $system-info;
+    font-size: 16px;
+    line-height: 150%;
+    @include onPhone {
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__dates {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-direction: row;
+
+    @include onPhone {
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    &__comment {
+      color: $gray-80;
+    }
+
+    &__content {
+      color: $gray-100
+    }
+  }
+}

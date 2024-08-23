@@ -1,0 +1,169 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.my-course-card {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+  }
+
+  &__main {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    @include onPhone {
+      width: 100%;
+    }
+
+    @include onTablet{
+      width: 50%;
+    }
+
+    width: 427px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__content {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__coursetype {
+      color: $additional-brown;
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &__label {
+      width: 168px;
+      color: $gray-100;
+    }
+
+    &__text {
+      flex: 1;
+      hyphens: auto;
+      color: $gray-70;
+      text-align: left;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      @include onPhone {
+        flex-direction: column;
+      }
+
+      @include onTablet {
+        flex-direction: column;
+      }
+
+      flex-direction: row;
+    }
+
+    &__format {
+      @include onPhone {
+        display: none;
+      }
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__progress {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__label {
+      color: $gray-100;
+      font-size: 16px;
+    }
+
+    &__percentage {
+      color: $gray-70;
+      font-size: 14px;
+    }
+
+    &__bar {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background-color: $gray-30;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    &__fill {
+      height: 100%;
+      background-color: #4caf50;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    &__dates {
+      display: flex;
+      justify-content: space-between;
+      color: $gray-70;
+      font-size: 14px;
+
+      &__container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      &__label {
+        color: $gray-100;
+      }
+    }
+  }
+
+  &__button {
+    height: 48px;
+    width: 100%;
+  }
+}

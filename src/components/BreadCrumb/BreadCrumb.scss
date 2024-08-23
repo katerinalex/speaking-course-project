@@ -1,0 +1,43 @@
+@import '../../styles/utils/variables';
+
+.bread-crumb {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-self: center;
+  text-transform: capitalize;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  &__item {
+    color: $gray-80;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $gray-80;
+    }
+
+    .paragraph {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &__text {
+    color: $gray-80;
+    text-decoration: none;
+  }
+
+  &__separator {
+    margin: 0 8px;
+    color: $gray-80;
+  }
+}

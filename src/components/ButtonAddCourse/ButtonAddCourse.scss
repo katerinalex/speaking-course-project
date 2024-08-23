@@ -1,0 +1,29 @@
+.add-button {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #5D7366;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+  }
+
+  &:after {
+    content: "+";
+    font-size: 30px;
+    color: #ffffff;
+    position: absolute;
+    z-index: 1;
+  }
+}

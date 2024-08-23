@@ -1,0 +1,174 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.my-course-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+
+  &__header {
+    display: flex;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 5.5px;
+
+    @include onPhone {
+      align-self:flex-start;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20.75px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('../../../public/icons/Lock.svg');
+
+      .my-course-details__header--open & {
+        background-image: url('../../../public/icons/LockUnlocked.svg');
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    color: $gray-100;
+    align-items: center;
+    flex: 1;
+
+
+    @include onPhone {
+      flex-direction: column;
+      align-items:flex-start;
+      gap: 0;
+    }
+
+    &__module {
+      color: $gray-60;
+    }
+
+  }
+
+  &__expand-collapse-icon {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('../../../public/icons/SquareAltArrowUp.svg');
+
+      .my-course-details__header--open & {
+        background-image: url('../../../public/icons/SquareAltArrowDown.svg');
+      }
+    }
+  }
+
+  &__progress {
+    display: flex;
+    align-items: center;
+
+    &__bar {
+      width: 100%;
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+
+      &__fill {
+        height: 100%;
+        background-color: #4caf50;
+        border-radius: 8px;
+      }
+    }
+
+    &__percentage {
+      font-size: 12px;
+      color: $gray-100;
+      margin-inline: 24px;
+    }
+  }
+
+  &__content {
+    padding: 12px;
+    background-color: #ffffff;
+  }
+}
+
+.thema {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__title {
+    font-weight: 600;
+    color: $gray-100;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__lesson {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid $gray-40;
+
+    height: 64px;
+
+    &:hover {
+      background-color: $gray-20;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('../../../public/icons/CheckSquare.svg');
+    }
+
+    &__title {
+      color: $gray-60;
+    }
+  }
+
+  &__lessons {
+    margin-top: 8px;
+    padding-left: 16px;
+    list-style-type: none;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('../../../public/icons/CheckSquare.svg');
+
+      .thema__icon--close & {
+        background-image: url('../../../public/icons/CloseSquare.svg');
+      }
+    }
+  }
+}

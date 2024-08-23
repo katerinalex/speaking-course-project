@@ -1,0 +1,15 @@
+@import './mixins';
+
+@mixin page-padding {
+  @include onPhone {
+    margin-inline: 16px;
+  }
+
+  @include onTablet() {
+    margin-inline: 24px;
+  }
+
+  @include onDesktop() {
+    margin-inline: 56px;
+  }
+}

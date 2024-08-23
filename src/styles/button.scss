@@ -1,5 +1,5 @@
-@import './typography';
-@import './variables';
+@import './utils/typography';
+@import './utils/variables';
 
 .button {
   @extend %poppins-700;
@@ -8,11 +8,14 @@
   letter-spacing: 0;
   border: 0;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.5s;
 
   &--pink {
     background-color: $primary-rose;
     color: $gray-90;
-    :hover {
+
+    &:hover {
       background-color: $additional-brown;
       color: $gray-10;
     }

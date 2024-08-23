@@ -1,0 +1,45 @@
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/mixins';
+
+.courses-empty {
+  text-align: left;
+  font-family: Arial, sans-serif;
+  max-width: 990px;
+  
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__invite {
+    color: $gray-80;
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    background-color: $primary-green;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    @include onPhone {
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: $gray-80;
+    }
+  }
+
+  &__button {
+    padding: 12px 40px;
+  }
+}
