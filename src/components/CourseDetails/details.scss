@@ -49,6 +49,33 @@
     @include onPhone {
       width: 100%;
     }
+
+    &-flexible {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+      margin: 0;
+      width: 100%;
+      height: 360px;
+    }
+
+    &-container {
+      width: 652px;
+      background-color: #f4f6f3;
+      border-radius: 8px;
+
+      @include onPhone {
+        width: 100%;
+      }
+
+      @include onTablet {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
   }
 
   &__main {
@@ -69,6 +96,31 @@
     }
   }
 
+  &-flexible {
+    &-switch {
+      &-container {
+        display: flex;
+        padding: 0 24px;
+        gap: 36px;
+        height: 83px;
+      }
+
+      &__button {
+        @extend %poppins-500;
+        color: #8c8284;
+        font-size: 24px;
+        line-height: 145%;
+        border: none;
+        background: none;
+        background-color: none;
+
+        &-active {
+          color: #0e0e0e;
+        }
+      }
+    }
+  }
+
   &__description {
     &-container {
       display: flex;
@@ -82,7 +134,16 @@
       }
 
       @include onTablet {
+        display: flex;
+        justify-content: center;
         margin-top: 24px;
+      }
+
+      &-time {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 81px;
       }
     }
 
@@ -113,6 +174,37 @@
 
       @include onPhone {
         margin-bottom: 11px;
+      }
+
+      &-time {
+        display: flex;
+        gap: 10px;
+        margin: 0;
+
+        &::before {
+          content: "";
+          position: relative;
+          display: block;
+          width: 16px;
+          height: 16px;
+          background-color: #fff;
+          border: 2px solid #252a26;
+          border-radius: 50%;
+        }
+
+        &-active {
+          display: flex;
+          gap: 10px;
+          margin: 0;
+
+          &::before {
+            content: url("../../../public/images/circle.svg");
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
 
@@ -155,6 +247,7 @@
       }
 
       @include onTablet {
+        margin-left: 0;
         gap: 16px;
       }
     }
@@ -281,6 +374,7 @@
     }
 
     &__list {
+      list-style: none;
       margin-left: 24px;
 
       &-container {
@@ -289,6 +383,34 @@
 
         @include onPhone {
           gap: 0;
+        }
+      }
+    }
+
+    &__item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      &::before {
+        content: "";
+        position: relative;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #e3e3e3;
+        border-radius: 5px;
+      }
+
+      &-active {
+        &::before {
+          content: "";
+          position: relative;
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-image: url("../../../public/images/check-mark.svg");
+          border-radius: 5px;
         }
       }
     }
@@ -415,8 +537,19 @@
   &-module {
     &-container {
       display: flex;
-      // justify-content: space-between;
       gap: 24px;
+
+      @include onPhone {
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+      }
+
+      @include onTablet {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+      }
 
       @include onDesktop {
         margin-top: 40px;
@@ -433,6 +566,10 @@
       &-container {
         display: flex;
         gap: 16px;
+
+        @include onPhone {
+          flex-direction: column;
+        }
       }
     }
 
@@ -447,6 +584,7 @@
     }
 
     &__list {
+      list-style: none;
       text-align: start;
 
       &-container {
