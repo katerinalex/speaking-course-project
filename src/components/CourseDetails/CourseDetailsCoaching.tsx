@@ -36,12 +36,12 @@ export const CourseDetailsCoaching = () => {
         <div className="details__description">
           <div className="details__description-container">
             <h3 className="details__description__title">Skills you’ll gain</h3>
-            {/* <p className="details__description__paragraph">
+            {!selectedCoachingCourse?.skills.length && <p className="details__description__paragraph">
               Self-confident, voice control, stress management, leadership and
               team interaction, persuasive communication, audience engagement,
               handling Q&A sessions, personal branding, simplifying complex
               information, and many others
-            </p> */}
+            </p>}
               {selectedCoachingCourse?.skills.map((skill) => (
                  <p className="details__description__paragraph">{skill.name}</p>
               ))}
@@ -69,18 +69,18 @@ export const CourseDetailsCoaching = () => {
         <h3 className="details-direction__title">Direction</h3>
         <div className="details-direction__list-container">
           <ul className="details-direction__list">
-            <li>All</li>
-            <li>Bloggers</li>
-            <li>CEO and Managers</li>
-            <li>Consultants and Advisors</li>
-            <li>Entrepreneurs and Start-up-founders</li>
+            <li className="details-direction__item">All</li>
+            <li className="details-direction__item">Bloggers</li>
+            <li className="details-direction__item">CEO and Managers</li>
+            <li className="details-direction__item">Consultants and Advisors</li>
+            <li className="details-direction__item">Entrepreneurs and Start-up-founders</li>
           </ul>
           <ul className="details-direction__list">
-            <li>For everyday life</li>
-            <li>Healthcare Professionals</li>
-            <li>IT specialists</li>
-            <li>Life Coaches</li>
-            <li>Marketing Professionals and PR Specialists</li>
+            <li className="details-direction__item">For everyday life</li>
+            <li className="details-direction__item">Healthcare Professionals</li>
+            <li className="details-direction__item details-direction__item-active">IT specialists</li>
+            <li className="details-direction__item">Life Coaches</li>
+            <li className="details-direction__item">Marketing Professionals and PR Specialists</li>
           </ul>
         </div>
       </div>
